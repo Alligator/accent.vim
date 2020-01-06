@@ -51,10 +51,11 @@ execute 'hi Underlined'   . fg    . bg_none . underline
 hi! link Operator     Normal
 hi! link Identifier   Normal
 hi! link Todo         Normal
-hi! link Statement    Constant
+hi! link Statement    PreProc
 hi! link Type         Constant
 hi! link SpecialKey   Constant
 hi! link Title        Constant
+hi! link Directory    Constant
 hi! link Special      StatusLine
 
 " special stuff
