@@ -45,7 +45,7 @@ execute 'hi Folded'       . fg_b1 . bg_b1   . none
 " syntax
 execute 'hi Normal'       . fg    . bg
 execute 'hi Comment'      . fg_d2 . bg_none . none
-execute 'hi Constant'     . fg_c  . bg_none . none
+execute 'hi String'       . fg_c  . bg_none . none
 execute 'hi Type'         . fg_b1 . bg_none . none
 execute 'hi PreProc'      . fg    . bg_none . bold
 execute 'hi Underlined'   . fg    . bg_none . underline
@@ -54,10 +54,13 @@ hi! link Operator     Normal
 hi! link Identifier   Normal
 hi! link Todo         Normal
 hi! link Statement    PreProc
+hi! link Constant     Type
 hi! link SpecialKey   Type
 hi! link Title        Type
 hi! link Directory    Type
 hi! link Special      StatusLine
+hi! link Number       String
+hi! link Character    String
 
 " special stuff
 hi! link xmlAttrib    Normal
