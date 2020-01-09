@@ -9,10 +9,10 @@ let g:colors_name = 'accent'
 
 let accent_colours = {}
 let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#c04c55' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#e06c75' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#98c379' }
 let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
 let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#61afef' }
-let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#c678dd' }
+let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#b668cd' }
 let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
@@ -80,7 +80,7 @@ execute 'hi String'       . fg_c  . bg_none . none
 execute 'hi Type'         . fg_b1 . bg_none . none
 execute 'hi PreProc'      . fg    . bg_none . bold
 execute 'hi Underlined'   . fg    . bg_none . underline
-execute 'hi Special'      . fg_b1 . bg_b1   . none
+execute 'hi Special'      . fg_c  . bg_none . none
 execute 'hi Error'        . fg_b1 . bg_red  . none
 
 hi! link Operator     Normal
