@@ -5,17 +5,18 @@ if exists('syntax on')
   syntax reset
 endif
 
-let g:colors_name = 'mono'
+let g:colors_name = 'accent'
 
-let g:mono_accent_colours = {}
-let g:mono_accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#c04c55' }
-let g:mono_accent_colours['green']   = { 'fg': '#98c379', 'bg': '#e06c75' }
-let g:mono_accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
-let g:mono_accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#61afef' }
-let g:mono_accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#c678dd' }
-let g:mono_accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
+let accent_colours = {}
+let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#c04c55' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#e06c75' }
+let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
+let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#61afef' }
+let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#c678dd' }
+let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
 
-let accent = get(g:, 'mono_accent', 'yellow')
+let accent = get(g:, 'accent_colour', 'yellow')
+let accent = get(g:, 'accent_color', accent)
 
 " foreground
 let fg      = ' guifg=#bcbfc4'
@@ -24,7 +25,7 @@ let fg_d1   = ' guifg=#999999'
 let fg_d2   = ' guifg=#777777'
 let fg_d3   = ' guifg=#585c64'
 let fg_inv  = ' guifg=#282c34'
-let fg_c    = ' guifg=' . get(g:mono_accent_colours, accent).fg
+let fg_c    = ' guifg=' . get(accent_colours, accent).fg
 
 " background
 let bg      = ' guibg=#282c34'
@@ -32,13 +33,21 @@ let bg_b1   = ' guibg=#383c44'
 let bg_b2   = ' guibg=#484c54'
 let bg_none = ' guibg=NONE'
 let bg_inv  = ' guibg=#cccfd4'
-let bg_red  = ' guibg=' . g:mono_accent_colours.red.bg
-let bg_c    = ' guibg=' . get(g:mono_accent_colours, accent).bg
+let bg_red  = ' guibg=' . accent_colours.red.bg
+let bg_c    = ' guibg=' . get(accent_colours, accent).bg
+
+" special
+
+let sp_red      = ' guisp=' . accent_colours.red.fg
+let sp_magenta  = ' guisp=' . accent_colours.magenta.fg
+let sp_blue     = ' guisp=' . accent_colours.blue.fg
+let sp_cyan     = ' guisp=' . accent_colours.cyan.fg
 
 " modifiers
 let bold    = ' gui=bold'
 let none    = ' gui=none'
 let underline = ' gui=underline'
+let undercurl = ' gui=undercurl'
 
 " general
 execute 'hi Normal'       . fg    . bg
@@ -54,6 +63,15 @@ execute 'hi WildMenu'     . fg_inv. bg_inv  . none
 execute 'hi Search'       . fg_inv. bg_c    . none
 execute 'hi Folded'       . fg_b1 . bg_b1   . none
 execute 'hi Visual'               . bg_b2
+
+execute 'hi Question'     . fg_c
+hi! link MoreMsg Question
+
+" spellchecking
+execute 'hi SpellBad'                       . undercurl . sp_red
+execute 'hi SpellRare'                      . undercurl . sp_magenta
+execute 'hi SpellCap'                       . undercurl . sp_blue
+execute 'hi SpellLocal'                     . undercurl . sp_cyan
 
 " syntax
 execute 'hi Normal'       . fg    . bg
