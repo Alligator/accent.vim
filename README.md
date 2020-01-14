@@ -3,6 +3,13 @@ A simple vim colourscheme with a configurable accent colour.
 
 ![](https://raw.githubusercontent.com/Alligator/accent.vim/images/accent.gif)
 
+## installation
+Using vim-plug:
+```vim
+Plug 'alligator/accent.vim'
+```
+Other package managers may vary.
+
 ## change the accent colour
 Set `g:accent_colour` or `g:accent_color` to one of the possible values:
 
