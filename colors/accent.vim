@@ -1,3 +1,10 @@
+" accent.vim
+"
+" a simple vim colourscheme with a configurable accent colour.
+" by alligator
+"
+" https://github.com/Alligator/accent.vim
+
 set background=dark
 hi clear
 
@@ -8,15 +15,34 @@ endif
 let g:colors_name = 'accent'
 
 let accent_colours = {}
-let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#c04c55' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#e06c75' }
+let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349' }
 let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
-let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#61afef' }
-let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#c678dd' }
+let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#4896cf' }
+let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8' }
 let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
 let accent = get(g:, 'accent_color', accent)
+
+" useful development code to cycle through all of the colours
+"
+" run this once then comment it out again, otherwise the colo accent at the
+" end of the function will cause this function to be redefined while it's
+" still running, which vim doesn't like
+"
+" function! AccentCycle()
+"   let accent = get(g:, 'accent_colour', 'yellow')
+"   let accent = get(g:, 'accent_color', accent)
+"
+"   let colours = keys(g:accent_colours)
+"   let idx = index(colours, accent)
+"   let new_colour = colours[(idx + 1) % len(colours)]
+"
+"   let g:accent_colour = new_colour
+"   let g:accent_color = new_colour
+"   colo accent
+" endfunction
 
 " foreground
 let fg      = ' guifg=#bcbfc4'
@@ -37,22 +63,21 @@ let bg_red  = ' guibg=' . accent_colours.red.bg
 let bg_c    = ' guibg=' . get(accent_colours, accent).bg
 
 " special
-
 let sp_red      = ' guisp=' . accent_colours.red.fg
 let sp_magenta  = ' guisp=' . accent_colours.magenta.fg
 let sp_blue     = ' guisp=' . accent_colours.blue.fg
 let sp_cyan     = ' guisp=' . accent_colours.cyan.fg
 
 " modifiers
-let bold    = ' gui=bold'
-let none    = ' gui=none'
+let bold      = ' gui=bold'
+let none      = ' gui=none'
 let underline = ' gui=underline'
 let undercurl = ' gui=undercurl'
 
 " general
 execute 'hi Normal'       . fg    . bg
-execute 'hi StatusLine'   . fg_inv. bg_c    . none
-execute 'hi StatusLineNC' . fg_d3 . bg_c    . none
+execute 'hi StatusLine'   . fg_b1 . bg_c    . none
+execute 'hi StatusLineNC' . fg_d1 . bg_b2   . none
 execute 'hi VertSplit'    . fg_c  . bg_none . none
 execute 'hi LineNr'       . fg_d2 . bg_none . none
 execute 'hi CursorLineNr' . fg_b1 . bg_none . none
@@ -66,6 +91,7 @@ execute 'hi Visual'               . bg_b2
 
 execute 'hi Question'     . fg_c
 hi! link MoreMsg Question
+hi! link FoldColumn Folded
 
 " spellchecking
 execute 'hi SpellBad'                       . undercurl . sp_red
@@ -80,7 +106,7 @@ execute 'hi String'       . fg_c  . bg_none . none
 execute 'hi Type'         . fg_b1 . bg_none . none
 execute 'hi PreProc'      . fg    . bg_none . bold
 execute 'hi Underlined'   . fg    . bg_none . underline
-execute 'hi Special'      . fg_b1 . bg_b1   . none
+execute 'hi Special'      . fg_c  . bg_none . none
 execute 'hi Error'        . fg_b1 . bg_red  . none
 
 hi! link Operator     Normal
@@ -98,3 +124,13 @@ hi! link ErrorMsg     Error
 " special stuff
 hi! link xmlAttrib    Normal
 hi! link sqlKeyword   Type
+
+" diff
+let diff_red    = ' guifg=#68525c guibg=#48323c'
+let diff_green  = ' guibg=#284034'
+let diff_purple = ' guibg=#582c64'
+
+execute 'hi DiffAdd'    . diff_green
+execute 'hi DiffDelete' . diff_red
+execute 'hi DiffChange' . bg_b1
+execute 'hi DiffText'   . fg_b1       . bg_red  . none
