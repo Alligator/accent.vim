@@ -37,15 +37,14 @@ let bg_red  = ' guibg=' . accent_colours.red.bg
 let bg_c    = ' guibg=' . get(accent_colours, accent).bg
 
 " special
-
 let sp_red      = ' guisp=' . accent_colours.red.fg
 let sp_magenta  = ' guisp=' . accent_colours.magenta.fg
 let sp_blue     = ' guisp=' . accent_colours.blue.fg
 let sp_cyan     = ' guisp=' . accent_colours.cyan.fg
 
 " modifiers
-let bold    = ' gui=bold'
-let none    = ' gui=none'
+let bold      = ' gui=bold'
+let none      = ' gui=none'
 let underline = ' gui=underline'
 let undercurl = ' gui=undercurl'
 
