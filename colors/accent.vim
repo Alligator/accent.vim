@@ -65,6 +65,7 @@ execute 'hi Visual'               . bg_b2
 
 execute 'hi Question'     . fg_c
 hi! link MoreMsg Question
+hi! link FoldColumn Folded
 
 " spellchecking
 execute 'hi SpellBad'                       . undercurl . sp_red
@@ -97,3 +98,13 @@ hi! link ErrorMsg     Error
 " special stuff
 hi! link xmlAttrib    Normal
 hi! link sqlKeyword   Type
+
+" diff
+let diff_red    = ' guifg=#68525c guibg=#48323c'
+let diff_green  = ' guibg=#284034'
+let diff_purple = ' guibg=#582c64'
+
+execute 'hi DiffAdd'    . diff_green
+execute 'hi DiffDelete' . diff_red
+execute 'hi DiffChange' . bg_b1
+execute 'hi DiffText'   . fg_b1       . bg_red  . none
