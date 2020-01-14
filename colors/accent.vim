@@ -1,3 +1,10 @@
+" accent.vim
+"
+" a simple vim colourscheme with a configurable accent colour.
+" by alligator
+"
+" https://github.com/Alligator/accent.vim
+
 set background=dark
 hi clear
 
@@ -9,14 +16,33 @@ let g:colors_name = 'accent'
 
 let accent_colours = {}
 let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#78b359' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349' }
 let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
-let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#519fdf' }
+let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#4896cf' }
 let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8' }
 let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
 let accent = get(g:, 'accent_color', accent)
+
+" useful development code to cycle through all of the colours
+"
+" run this once then comment it out again, otherwise the colo accent at the
+" end of the function will cause this function to be redefined while it's
+" still running, which vim doesn't like
+"
+" function! AccentCycle()
+"   let accent = get(g:, 'accent_colour', 'yellow')
+"   let accent = get(g:, 'accent_color', accent)
+"
+"   let colours = keys(g:accent_colours)
+"   let idx = index(colours, accent)
+"   let new_colour = colours[(idx + 1) % len(colours)]
+"
+"   let g:accent_colour = new_colour
+"   let g:accent_color = new_colour
+"   colo accent
+" endfunction
 
 " foreground
 let fg      = ' guifg=#bcbfc4'
@@ -50,8 +76,8 @@ let undercurl = ' gui=undercurl'
 
 " general
 execute 'hi Normal'       . fg    . bg
-execute 'hi StatusLine'   . fg_inv. bg_c    . none
-execute 'hi StatusLineNC' . fg_d3 . bg_c    . none
+execute 'hi StatusLine'   . fg_b1 . bg_c    . none
+execute 'hi StatusLineNC' . fg_d1 . bg_b2   . none
 execute 'hi VertSplit'    . fg_c  . bg_none . none
 execute 'hi LineNr'       . fg_d2 . bg_none . none
 execute 'hi CursorLineNr' . fg_b1 . bg_none . none
