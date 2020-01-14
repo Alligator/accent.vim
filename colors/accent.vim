@@ -8,11 +8,11 @@ endif
 let g:colors_name = 'accent'
 
 let accent_colours = {}
-let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#c04c55' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#98c379' }
+let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#78b359' }
 let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
-let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#61afef' }
-let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#b668cd' }
+let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#519fdf' }
+let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8' }
 let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
