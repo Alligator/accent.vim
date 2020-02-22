@@ -15,12 +15,12 @@ endif
 let g:colors_name = 'accent'
 
 let accent_colours = {}
-let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349' }
-let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b' }
-let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#4896cf' }
-let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8' }
-let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2' }
+let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55', 'ctermfg': '168', 'ctermbg': '131' }
+let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349', 'ctermfg': '108', 'ctermbg': '65' }
+let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b', 'ctermfg': '180', 'ctermbg': '137' }
+let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#4896cf', 'ctermfg': '75',  'ctermbg': '68' }
+let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8', 'ctermfg': '176', 'ctermbg': '134' }
+let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '73',  'ctermbg': '67' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
 let accent = get(g:, 'accent_color', accent)
@@ -45,13 +45,13 @@ let accent = get(g:, 'accent_color', accent)
 " endfunction
 
 " foreground
-let fg      = ' guifg=#bcbfc4'
-let fg_b1   = ' guifg=#efefff'
-let fg_d1   = ' guifg=#999999'
-let fg_d2   = ' guifg=#777777'
-let fg_d3   = ' guifg=#585c64'
-let fg_inv  = ' guifg=#282c34'
-let fg_c    = ' guifg=' . get(accent_colours, accent).fg
+let fg      = ' guifg=#bcbfc4 ctermfg=7'
+let fg_b1   = ' guifg=#efefff ctermfg=255'
+let fg_d1   = ' guifg=#999999 ctermfg=246'
+let fg_d2   = ' guifg=#777777 ctermfg=244'
+let fg_d3   = ' guifg=#585c64 ctermfg=59'
+let fg_inv  = ' guifg=#282c34 ctermfg=236'
+let fg_c    = ' guifg=' . get(accent_colours, accent).fg . ' ctermfg=' . get(accent_colours, accent).ctermfg
 
 " background
 let bg      = ' guibg=#282c34'
@@ -60,7 +60,7 @@ let bg_b2   = ' guibg=#484c54'
 let bg_none = ' guibg=NONE'
 let bg_inv  = ' guibg=#cccfd4'
 let bg_red  = ' guibg=' . accent_colours.red.bg
-let bg_c    = ' guibg=' . get(accent_colours, accent).bg
+let bg_c    = ' guibg=' . get(accent_colours, accent).bg . ' ctermbg=' . get(accent_colours, accent).ctermbg
 
 " special
 let sp_red      = ' guisp=' . accent_colours.red.fg
@@ -70,7 +70,7 @@ let sp_cyan     = ' guisp=' . accent_colours.cyan.fg
 
 " modifiers
 let bold      = ' gui=bold'
-let none      = ' gui=none'
+let none      = ' gui=none cterm=none'
 let underline = ' gui=underline'
 let undercurl = ' gui=undercurl'
 
