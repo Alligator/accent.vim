@@ -45,7 +45,7 @@ let accent = get(g:, 'accent_color', accent)
 " endfunction
 
 " foreground
-let fg      = ' guifg=#bcbfc4 ctermfg=7'
+let fg      = ' guifg=#bcbfc4 ctermfg=250'
 let fg_b1   = ' guifg=#efefff ctermfg=255'
 let fg_d1   = ' guifg=#999999 ctermfg=246'
 let fg_d2   = ' guifg=#777777 ctermfg=244'
