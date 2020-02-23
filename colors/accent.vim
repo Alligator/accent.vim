@@ -55,11 +55,11 @@ let fg_c    = ' guifg=' . get(accent_colours, accent).fg . ' ctermfg=' . get(acc
 
 " background
 let bg      = ' guibg=#282c34'
-let bg_b1   = ' guibg=#383c44'
-let bg_b2   = ' guibg=#484c54'
+let bg_b1   = ' guibg=#383c44 ctermbg=237'
+let bg_b2   = ' guibg=#484c54 ctermbg=239'
 let bg_none = ' guibg=NONE'
-let bg_inv  = ' guibg=#cccfd4'
-let bg_red  = ' guibg=' . accent_colours.red.bg
+let bg_inv  = ' guibg=#cccfd4 ctermbg=188'
+let bg_red  = ' guibg=' . accent_colours.red.bg . ' ctermbg=' . accent_colours.red.ctermbg
 let bg_c    = ' guibg=' . get(accent_colours, accent).bg . ' ctermbg=' . get(accent_colours, accent).ctermbg
 
 " special
@@ -88,6 +88,8 @@ execute 'hi WildMenu'     . fg_inv. bg_inv  . none
 execute 'hi Search'       . fg_inv. bg_c    . none
 execute 'hi Folded'       . fg_b1 . bg_b1   . none
 execute 'hi Visual'               . bg_b2
+execute 'hi Pmenu'        . fg_d1 . bg_b1  . none
+execute 'hi PmenuSel'     . fg_c  . bg_b2  . none
 
 execute 'hi Question'     . fg_c
 hi! link MoreMsg Question
