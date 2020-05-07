@@ -63,10 +63,10 @@ let bg_red  = ' guibg=' . accent_colours.red.bg . ' ctermbg=' . accent_colours.r
 let bg_c    = ' guibg=' . get(accent_colours, accent).bg . ' ctermbg=' . get(accent_colours, accent).ctermbg
 
 " special
-let sp_red      = ' guisp=' . accent_colours.red.fg
-let sp_magenta  = ' guisp=' . accent_colours.magenta.fg
-let sp_blue     = ' guisp=' . accent_colours.blue.fg
-let sp_cyan     = ' guisp=' . accent_colours.cyan.fg
+let sp_red      = ' guisp=' . accent_colours.red.fg     . ' ctermfg=' . accent_colours.red.ctermfg
+let sp_magenta  = ' guisp=' . accent_colours.magenta.fg . ' ctermfg=' . accent_colours.magenta.ctermfg
+let sp_blue     = ' guisp=' . accent_colours.blue.fg    . ' ctermfg=' . accent_colours.blue.ctermfg
+let sp_cyan     = ' guisp=' . accent_colours.cyan.fg    . ' ctermfg=' . accent_colours.cyan.ctermfg
 
 " modifiers
 let bold      = ' gui=bold'
@@ -88,18 +88,18 @@ execute 'hi WildMenu'     . fg_inv. bg_inv  . none
 execute 'hi Search'       . fg_inv. bg_c    . none
 execute 'hi Folded'       . fg_b1 . bg_b1   . none
 execute 'hi Visual'               . bg_b2
-execute 'hi Pmenu'        . fg_d1 . bg_b1  . none
-execute 'hi PmenuSel'     . fg_c  . bg_b2  . none
+execute 'hi Pmenu'        . fg_d1 . bg_b1   . none
+execute 'hi PmenuSel'     . fg_c  . bg_b2   . none
 
 execute 'hi Question'     . fg_c
 hi! link MoreMsg Question
 hi! link FoldColumn Folded
 
 " spellchecking
-execute 'hi SpellBad'                       . undercurl . sp_red
-execute 'hi SpellRare'                      . undercurl . sp_magenta
-execute 'hi SpellCap'                       . undercurl . sp_blue
-execute 'hi SpellLocal'                     . undercurl . sp_cyan
+execute 'hi SpellBad'     . ' ctermbg=NONE' . undercurl . sp_red
+execute 'hi SpellRare'    . ' ctermbg=NONE' . undercurl . sp_magenta
+execute 'hi SpellCap'     . ' ctermbg=NONE' . undercurl . sp_blue
+execute 'hi SpellLocal'   . ' ctermbg=NONE' . undercurl . sp_cyan
 
 " syntax
 execute 'hi Normal'       . fg    . bg
