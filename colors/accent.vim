@@ -16,10 +16,11 @@ let g:colors_name = 'accent'
 
 let accent_colours = {}
 let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55', 'ctermfg': '167', 'ctermbg': '131' }
+let accent_colours['orange']  = { 'fg': '#ee9360', 'bg': '#b66930', 'ctermfg': '167', 'ctermbg': '131' }
 let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349', 'ctermfg': '149', 'ctermbg': '107' }
 let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b', 'ctermfg': '179', 'ctermbg': '136' }
-let accent_colours['blue']    = { 'fg': '#61afef', 'bg': '#4896cf', 'ctermfg': '39', 'ctermbg': '32' }
-let accent_colours['magenta'] = { 'fg': '#c678dd', 'bg': '#a664c8', 'ctermfg': '176', 'ctermbg': '134' }
+let accent_colours['blue']    = { 'fg': '#61afe7', 'bg': '#3876af', 'ctermfg': '39', 'ctermbg': '32' }
+let accent_colours['magenta'] = { 'fg': '#c688cd', 'bg': '#965498', 'ctermfg': '176', 'ctermbg': '134' }
 let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '73',  'ctermbg': '30' }
 
 let accent = get(g:, 'accent_colour', 'yellow')
