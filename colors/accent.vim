@@ -79,7 +79,7 @@ let undercurl = ' gui=undercurl'
 execute 'hi Normal'       . fg    . bg
 execute 'hi StatusLine'   . fg_b1 . bg_c    . none
 execute 'hi StatusLineNC' . fg_d1 . bg_b2   . none
-execute 'hi VertSplit'    . fg_c  . bg_none . none
+execute 'hi VertSplit'    . fg_c  . bg_b1   . none
 execute 'hi LineNr'       . fg_d2 . bg_none . none
 execute 'hi CursorLineNr' . fg_b1 . bg_none . none
 execute 'hi CursorLine'           . bg_b1   . none
