@@ -92,6 +92,9 @@ execute 'hi Visual'               . bg_b2
 execute 'hi Pmenu'        . fg_d1 . bg_b1   . none
 execute 'hi PmenuSel'     . fg_c  . bg_b2   . none
 
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
+
 execute 'hi Question'     . fg_c
 hi! link MoreMsg Question
 hi! link FoldColumn Folded
