@@ -133,9 +133,9 @@ hi! link xmlAttrib    Normal
 hi! link sqlKeyword   Type
 
 " diff
-let diff_red    = ' guifg=#68525c guibg=#48323c ctermfg=167 ctermbg=NONE'
-let diff_green  = ' guibg=#284034 ctermfg=149 ctermbg=NONE'
-let diff_purple = ' guibg=#582c64 ctermfg=176 ctermbg=NONE'
+let diff_red    = ' guifg=#e06c75 guibg=NONE gui=NONE ctermfg=167 ctermbg=NONE'
+let diff_green  = ' guifg=#98c379 guibg=NONE ctermfg=149 ctermbg=NONE'
+let diff_purple = ' guifg=#c688cd guibg=NONE ctermfg=176 ctermbg=NONE'
 
 execute 'hi DiffAdd'    . diff_green
 execute 'hi DiffDelete' . diff_red
