@@ -25,6 +25,7 @@ let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '
 
 let accent = get(g:, 'accent_colour', 'yellow')
 let accent = get(g:, 'accent_color', accent)
+let darken = get(g:, 'accent_darken', 0)
 let invert_status = get(g:, 'accent_invert_status', 0)
 
 " useful development code to cycle through all of the colours
@@ -51,7 +52,6 @@ let fg      = ' guifg=#bcbfc4 ctermfg=250'
 let fg_b1   = ' guifg=#efefff ctermfg=255'
 let fg_d1   = ' guifg=#999999 ctermfg=246'
 let fg_d2   = ' guifg=#777777 ctermfg=244'
-let fg_d3   = ' guifg=#585c64 ctermfg=59'
 let fg_inv  = ' guifg=#282c34 ctermfg=236'
 let fg_invd = ' guifg=#181c24 ctermfg=234'
 let fg_c    = ' guifg=' . get(accent_colours, accent).fg . ' ctermfg=' . get(accent_colours, accent).ctermfg
@@ -64,6 +64,15 @@ let bg_none = ' guibg=NONE'
 let bg_inv  = ' guibg=#cccfd4 ctermbg=188'
 let bg_red  = ' guibg=' . accent_colours.red.bg . ' ctermbg=' . accent_colours.red.ctermbg
 let bg_c    = ' guibg=' . get(accent_colours, accent).bg . ' ctermbg=' . get(accent_colours, accent).ctermbg
+
+if darken
+  let fg      = ' guifg=#acafb4 ctermfg=248'
+  let fg_b1   = ' guifg=#dfdfef ctermfg=253'
+  let fg_d1   = ' guifg=#888888 ctermfg=244'
+  let fg_d2   = ' guifg=#666666 ctermfg=242'
+
+  let bg      = ' guibg=#181c24 ctermbg=234'
+endif
 
 " special
 let sp_red      = ' guisp=' . accent_colours.red.fg     . ' ctermfg=' . accent_colours.red.ctermfg
