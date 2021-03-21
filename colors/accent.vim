@@ -25,6 +25,7 @@ let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '
 
 let accent = get(g:, 'accent_colour', 'yellow')
 let accent = get(g:, 'accent_color', accent)
+let invert_status = get(g:, 'accent_invert_status', 0)
 
 " useful development code to cycle through all of the colours
 "
@@ -52,6 +53,7 @@ let fg_d1   = ' guifg=#999999 ctermfg=246'
 let fg_d2   = ' guifg=#777777 ctermfg=244'
 let fg_d3   = ' guifg=#585c64 ctermfg=59'
 let fg_inv  = ' guifg=#282c34 ctermfg=236'
+let fg_invd = ' guifg=#181c24 ctermfg=234'
 let fg_c    = ' guifg=' . get(accent_colours, accent).fg . ' ctermfg=' . get(accent_colours, accent).ctermfg
 
 " background
@@ -77,7 +79,11 @@ let undercurl = ' gui=undercurl'
 
 " general
 execute 'hi Normal'       . fg    . bg
-execute 'hi StatusLine'   . fg_b1 . bg_c    . none
+if invert_status
+  execute 'hi StatusLine' . fg_invd.bg_c    . none
+else
+  execute 'hi StatusLine' . fg_b1 . bg_c    . none
+endif
 execute 'hi StatusLineNC' . fg_d1 . bg_b2   . none
 execute 'hi VertSplit'    . fg_c  . bg_b1   . none
 execute 'hi LineNr'       . fg_d2 . bg_none . none
