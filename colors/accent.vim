@@ -110,7 +110,7 @@ execute 'hi Normal'       . fg    . bg
 execute 'hi Comment'      . fg_d2 . bg_none . none
 execute 'hi String'       . fg_c  . bg_none . none
 execute 'hi Type'         . fg_b1 . bg_none . none
-execute 'hi PreProc'      . fg    . bg_none . bold
+execute 'hi PreProc'      . fg_d1 . bg_none . none
 execute 'hi Underlined'   . fg    . bg_none . underline
 execute 'hi Special'      . fg_c  . bg_none . none
 execute 'hi Error'        . fg_b1 . bg_red  . none
@@ -118,7 +118,8 @@ execute 'hi Error'        . fg_b1 . bg_red  . none
 hi! link Operator     Normal
 hi! link Identifier   Normal
 hi! link Todo         Normal
-hi! link Statement    PreProc
+hi! link Macro        PreProc
+hi! link Statement    Type
 hi! link Constant     Type
 hi! link SpecialKey   Type
 hi! link Title        Type
