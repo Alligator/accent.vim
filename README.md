@@ -24,7 +24,7 @@ let g:accent_colour = 'blue'
 let g:accent_colour = 'magenta'
 let g:accent_colour = 'cyan'
 
-" g:accent_darken makes the background and some text colorus darker.
+" g:accent_darken makes the background and some text colours darker.
 let g:accent_darken = 0 " the default
 let g:accent_darken = 1
 
