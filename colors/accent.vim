@@ -106,6 +106,8 @@ execute 'hi Folded'       . fg_b1 . bg_b1   . none
 execute 'hi Visual'               . bg_b2
 execute 'hi Pmenu'        . fg_d1 . bg_b1   . none
 execute 'hi PmenuSel'     . fg_c  . bg_b2   . none
+execute 'hi TabLine'      . fg_d1 . bg_b1   . none
+execute 'hi TabLineFill'  . fg_d1 . bg_b2   . none
 
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
