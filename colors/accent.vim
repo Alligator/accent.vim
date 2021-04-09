@@ -14,19 +14,19 @@ endif
 
 let g:colors_name = 'accent'
 
-let accent_colours = {}
-let accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55', 'ctermfg': '167', 'ctermbg': '131' }
-let accent_colours['orange']  = { 'fg': '#ee9360', 'bg': '#b66930', 'ctermfg': '173', 'ctermbg': '166' }
-let accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349', 'ctermfg': '149', 'ctermbg': '107' }
-let accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b', 'ctermfg': '179', 'ctermbg': '136' }
-let accent_colours['blue']    = { 'fg': '#61afe7', 'bg': '#3876af', 'ctermfg': '74', 'ctermbg': '67' }
-let accent_colours['magenta'] = { 'fg': '#c688cd', 'bg': '#965498', 'ctermfg': '176', 'ctermbg': '133' }
-let accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '73',  'ctermbg': '30' }
+let g:accent_colours = {}
+let g:accent_colours['red']     = { 'fg': '#e06c75', 'bg': '#b04c55', 'ctermfg': '167', 'ctermbg': '131' }
+let g:accent_colours['orange']  = { 'fg': '#ee9360', 'bg': '#b66930', 'ctermfg': '173', 'ctermbg': '166' }
+let g:accent_colours['green']   = { 'fg': '#98c379', 'bg': '#689349', 'ctermfg': '149', 'ctermbg': '107' }
+let g:accent_colours['yellow']  = { 'fg': '#e5c07b', 'bg': '#a5803b', 'ctermfg': '179', 'ctermbg': '136' }
+let g:accent_colours['blue']    = { 'fg': '#61afe7', 'bg': '#3876af', 'ctermfg': '74', 'ctermbg': '67' }
+let g:accent_colours['magenta'] = { 'fg': '#c688cd', 'bg': '#965498', 'ctermfg': '176', 'ctermbg': '133' }
+let g:accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '73',  'ctermbg': '30' }
 
-let accent = get(g:, 'accent_colour', 'yellow')
-let accent = get(g:, 'accent_color', accent)
-let darken = get(g:, 'accent_darken', 0)
-let invert_status = get(g:, 'accent_invert_status', 0)
+let s:accent = get(g:, 'accent_colour', 'yellow')
+let s:accent = get(g:, 'accent_color', s:accent)
+let s:darken = get(g:, 'accent_darken', 0)
+let s:invert_status = get(g:, 'accent_invert_status', 0)
 
 " useful development code to cycle through all of the colours
 "
@@ -48,89 +48,89 @@ let invert_status = get(g:, 'accent_invert_status', 0)
 " endfunction
 
 " foreground
-let fg      = ' guifg=#bcbfc4 ctermfg=250'
-let fg_b1   = ' guifg=#efefff ctermfg=255'
-let fg_d1   = ' guifg=#999999 ctermfg=246'
-let fg_d2   = ' guifg=#777777 ctermfg=244'
-let fg_inv  = ' guifg=#282c34 ctermfg=236'
-let fg_invd = ' guifg=#181c24 ctermfg=234'
-let fg_c    = ' guifg=' . get(accent_colours, accent).fg . ' ctermfg=' . get(accent_colours, accent).ctermfg
+let s:fg      = ' guifg=#bcbfc4 ctermfg=250'
+let s:fg_b1   = ' guifg=#efefff ctermfg=255'
+let s:fg_d1   = ' guifg=#999999 ctermfg=246'
+let s:fg_d2   = ' guifg=#777777 ctermfg=244'
+let s:fg_inv  = ' guifg=#282c34 ctermfg=236'
+let s:fg_invd = ' guifg=#181c24 ctermfg=234'
+let s:fg_c    = ' guifg=' . get(accent_colours, s:accent).fg . ' ctermfg=' . get(accent_colours, s:accent).ctermfg
 
 " background
-let bg      = ' guibg=#282c34 ctermbg=236'
-let bg_b1   = ' guibg=#383c44 ctermbg=237'
-let bg_b2   = ' guibg=#484c54 ctermbg=238'
-let bg_none = ' guibg=NONE'
-let bg_inv  = ' guibg=#cccfd4 ctermbg=188'
-let bg_red  = ' guibg=' . accent_colours.red.bg . ' ctermbg=' . accent_colours.red.ctermbg
-let bg_c    = ' guibg=' . get(accent_colours, accent).bg . ' ctermbg=' . get(accent_colours, accent).ctermbg
+let s:bg      = ' guibg=#282c34 ctermbg=236'
+let s:bg_b1   = ' guibg=#383c44 ctermbg=237'
+let s:bg_b2   = ' guibg=#484c54 ctermbg=238'
+let s:bg_none = ' guibg=NONE'
+let s:bg_inv  = ' guibg=#cccfd4 ctermbg=188'
+let s:bg_red  = ' guibg=' . accent_colours.red.bg . ' ctermbg=' . accent_colours.red.ctermbg
+let s:bg_c    = ' guibg=' . get(accent_colours, s:accent).bg . ' ctermbg=' . get(accent_colours, s:accent).ctermbg
 
-if darken
-  let fg      = ' guifg=#acafb4 ctermfg=248'
-  let fg_b1   = ' guifg=#dfdfef ctermfg=253'
-  let fg_d1   = ' guifg=#888888 ctermfg=244'
-  let fg_d2   = ' guifg=#666666 ctermfg=242'
+if s:darken
+  let s:fg      = ' guifg=#acafb4 ctermfg=248'
+  let s:fg_b1   = ' guifg=#dfdfef ctermfg=253'
+  let s:fg_d1   = ' guifg=#888888 ctermfg=244'
+  let s:fg_d2   = ' guifg=#666666 ctermfg=242'
 
-  let bg      = ' guibg=#181c24 ctermbg=234'
+  let s:bg      = ' guibg=#181c24 ctermbg=234'
 endif
 
 " special
-let sp_red      = ' guisp=' . accent_colours.red.fg     . ' ctermfg=' . accent_colours.red.ctermfg
-let sp_magenta  = ' guisp=' . accent_colours.magenta.fg . ' ctermfg=' . accent_colours.magenta.ctermfg
-let sp_blue     = ' guisp=' . accent_colours.blue.fg    . ' ctermfg=' . accent_colours.blue.ctermfg
-let sp_cyan     = ' guisp=' . accent_colours.cyan.fg    . ' ctermfg=' . accent_colours.cyan.ctermfg
+let s:sp_red      = ' guisp=' . accent_colours.red.fg     . ' ctermfg=' . accent_colours.red.ctermfg
+let s:sp_magenta  = ' guisp=' . accent_colours.magenta.fg . ' ctermfg=' . accent_colours.magenta.ctermfg
+let s:sp_blue     = ' guisp=' . accent_colours.blue.fg    . ' ctermfg=' . accent_colours.blue.ctermfg
+let s:sp_cyan     = ' guisp=' . accent_colours.cyan.fg    . ' ctermfg=' . accent_colours.cyan.ctermfg
 
 " modifiers
-let bold      = ' gui=bold'
-let none      = ' gui=none cterm=none'
-let underline = ' gui=underline'
-let undercurl = ' gui=undercurl'
+let s:bold      = ' gui=bold'
+let s:none      = ' gui=none cterm=none'
+let s:underline = ' gui=underline'
+let s:undercurl = ' gui=undercurl'
 
 " general
-execute 'hi Normal'       . fg    . bg
-if invert_status
-  execute 'hi StatusLine' . fg_invd.bg_c    . none
+execute 'hi Normal'       . s:fg      . s:bg
+if s:invert_status
+  execute 'hi StatusLine' . s:fg_invd .s:bg_c     . s:none
 else
-  execute 'hi StatusLine' . fg_b1 . bg_c    . none
+  execute 'hi StatusLine' . s:fg_b1   . s:bg_c    . s:none
 endif
-execute 'hi StatusLineNC' . fg_d1 . bg_b2   . none
-execute 'hi VertSplit'    . fg_c  . bg_b1   . none
-execute 'hi LineNr'       . fg_d2 . bg_none . none
-execute 'hi CursorLineNr' . fg_b1 . bg_none . none
-execute 'hi CursorLine'           . bg_b1   . none
-execute 'hi MatchParen'   . fg_b1 . bg_b1   . bold
-execute 'hi NonText'      . fg_d2 . bg_none . none
-execute 'hi WildMenu'     . fg_inv. bg_inv  . none
-execute 'hi Search'       . fg_inv. bg_c    . none
-execute 'hi Folded'       . fg_b1 . bg_b1   . none
-execute 'hi Visual'               . bg_b2
-execute 'hi Pmenu'        . fg_d1 . bg_b1   . none
-execute 'hi PmenuSel'     . fg_c  . bg_b2   . none
-execute 'hi TabLine'      . fg_d1 . bg_b1   . none
-execute 'hi TabLineFill'  . fg_d1 . bg_b2   . none
+execute 'hi StatusLineNC' . s:fg_d1   . s:bg_b2   . s:none
+execute 'hi VertSplit'    . s:fg_c    . s:bg_b1   . s:none
+execute 'hi LineNr'       . s:fg_d2   . s:bg_none . s:none
+execute 'hi CursorLineNr' . s:fg_b1   . s:bg_none . s:none
+execute 'hi CursorLine'               . s:bg_b1   . s:none
+execute 'hi MatchParen'   . s:fg_b1   . s:bg_b1   . s:bold
+execute 'hi NonText'      . s:fg_d2   . s:bg_none . s:none
+execute 'hi WildMenu'     . s:fg_inv  . s:bg_inv  . s:none
+execute 'hi Search'       . s:fg_inv  . s:bg_c    . s:none
+execute 'hi Folded'       . s:fg_b1   . s:bg_b1   . s:none
+execute 'hi Visual'                   . s:bg_b2
+execute 'hi Pmenu'        . s:fg_d1   . s:bg_b1   . s:none
+execute 'hi PmenuSel'     . s:fg_c    . s:bg_b2   . s:none
+execute 'hi TabLine'      . s:fg_d1   . s:bg_b1   . s:none
+execute 'hi TabLineFill'  . s:fg_d1   . s:bg_b2   . s:none
 
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 
-execute 'hi Question'     . fg_c
+execute 'hi Question'     . s:fg_c
 hi! link MoreMsg Question
 hi! link FoldColumn Folded
 
 " spellchecking
-execute 'hi SpellBad'     . ' ctermbg=NONE' . undercurl . sp_red
-execute 'hi SpellRare'    . ' ctermbg=NONE' . undercurl . sp_magenta
-execute 'hi SpellCap'     . ' ctermbg=NONE' . undercurl . sp_blue
-execute 'hi SpellLocal'   . ' ctermbg=NONE' . undercurl . sp_cyan
+execute 'hi SpellBad'     . ' ctermbg=NONE' . s:undercurl . s:sp_red
+execute 'hi SpellRare'    . ' ctermbg=NONE' . s:undercurl . s:sp_magenta
+execute 'hi SpellCap'     . ' ctermbg=NONE' . s:undercurl . s:sp_blue
+execute 'hi SpellLocal'   . ' ctermbg=NONE' . s:undercurl . s:sp_cyan
 
 " syntax
-execute 'hi Normal'       . fg    . bg
-execute 'hi Comment'      . fg_d2 . bg_none . none
-execute 'hi String'       . fg_c  . bg_none . none
-execute 'hi Type'         . fg_b1 . bg_none . none
-execute 'hi PreProc'      . fg_d1 . bg_none . none
-execute 'hi Underlined'   . fg    . bg_none . underline
-execute 'hi Special'      . fg_c  . bg_none . none
-execute 'hi Error'        . fg_b1 . bg_red  . none
+execute 'hi Normal'       . s:fg    . s:bg
+execute 'hi Comment'      . s:fg_d2 . s:bg_none . s:none
+execute 'hi String'       . s:fg_c  . s:bg_none . s:none
+execute 'hi Type'         . s:fg_b1 . s:bg_none . s:none
+execute 'hi PreProc'      . s:fg_d1 . s:bg_none . s:none
+execute 'hi Underlined'   . s:fg    . s:bg_none . s:underline
+execute 'hi Special'      . s:fg_c  . s:bg_none . s:none
+execute 'hi Error'        . s:fg_b1 . s:bg_red  . s:none
 
 hi! link Operator     Normal
 hi! link Identifier   Normal
@@ -150,14 +150,14 @@ hi! link xmlAttrib    Normal
 hi! link sqlKeyword   Type
 
 " diff
-let diff_red    = ' guifg=#e06c75 guibg=NONE gui=NONE ctermfg=167 ctermbg=NONE'
-let diff_green  = ' guifg=#98c379 guibg=NONE ctermfg=149 ctermbg=NONE'
-let diff_purple = ' guifg=#c688cd guibg=NONE ctermfg=176 ctermbg=NONE'
+let s:diff_red    = ' guifg=#e06c75 guibg=NONE gui=NONE ctermfg=167 ctermbg=NONE'
+let s:diff_green  = ' guifg=#98c379 guibg=NONE ctermfg=149 ctermbg=NONE'
+let s:diff_purple = ' guifg=#c688cd guibg=NONE ctermfg=176 ctermbg=NONE'
 
-execute 'hi DiffAdd'    . diff_green
-execute 'hi DiffDelete' . diff_red
-execute 'hi DiffChange' . bg_b1
-execute 'hi DiffText'   . fg_b1       . bg_red  . none
+execute 'hi DiffAdd'    . s:diff_green
+execute 'hi DiffDelete' . s:diff_red
+execute 'hi DiffChange' . s:bg_b1
+execute 'hi DiffText'   . s:fg_b1       . s:bg_red  . s:none
 
 hi! link diffAdded    DiffAdd
 hi! link diffRemoved  DiffDelete
