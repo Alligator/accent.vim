@@ -37,7 +37,7 @@ function! s:fnv1a(str)
   while i < len(a:str)
     let c = char2nr(a:str[i])
     let hash = xor(hash, c)
-    let hash *= 16777619
+    let hash = hash * 16777619
     let i += 1
   endwhile
   return hash
