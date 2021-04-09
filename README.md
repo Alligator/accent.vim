@@ -32,6 +32,10 @@ let g:accent_darken = 1
 let g:accent_invert_status = 0 " the default
 let g:accent_invert_status = 1
 
+" g:accent_auto_cwd_colour sets the accent colour using a hash of the current directory.
+let g:accent_auto_cwd_colour = 0 " the default
+let g:accent_auto_cwd_colour = 1 " the default
+
 " after changing settings, you'll need to re-apply the colorscheme
 colorscheme accent
 ```
