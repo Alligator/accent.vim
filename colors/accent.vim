@@ -23,29 +23,33 @@ let g:accent_colours['blue']    = { 'fg': '#61afe7', 'bg': '#3876af', 'ctermfg':
 let g:accent_colours['magenta'] = { 'fg': '#c688cd', 'bg': '#965498', 'ctermfg': '176', 'ctermbg': '133' }
 let g:accent_colours['cyan']    = { 'fg': '#56b6c2', 'bg': '#3696a2', 'ctermfg': '73',  'ctermbg': '30' }
 
+let g:accent_auto_cwd_colour = get(g:, 'accent_auto_cwd_colour', 0)
+
 let s:accent = get(g:, 'accent_colour', 'yellow')
 let s:accent = get(g:, 'accent_color', s:accent)
 let s:darken = get(g:, 'accent_darken', 0)
 let s:invert_status = get(g:, 'accent_invert_status', 0)
 
-" useful development code to cycle through all of the colours
-"
-" run this once then comment it out again, otherwise the colo accent at the
-" end of the function will cause this function to be redefined while it's
-" still running, which vim doesn't like
-"
-" function! AccentCycle()
-"   let accent = get(g:, 'accent_colour', 'yellow')
-"   let accent = get(g:, 'accent_color', accent)
-"
-"   let colours = keys(g:accent_colours)
-"   let idx = index(colours, accent)
-"   let new_colour = colours[(idx + 1) % len(colours)]
-"
-"   let g:accent_colour = new_colour
-"   let g:accent_color = new_colour
-"   colo accent
-" endfunction
+" 32 bit fowler-noll-vo hash
+function! s:fnv1a(str)
+  let hash = 2166136261
+  let i = 0
+  while i < len(a:str)
+    let c = char2nr(a:str[i])
+    let hash = xor(hash, c)
+    let hash *= 16777619
+    let i += 1
+  endwhile
+  return hash
+endfunction
+
+if get(g:, 'accent_auto_cwd_colour', 0)
+  let hash = s:fnv1a(getcwd())
+  let key_index = abs(hash) % len(g:accent_colours)
+  let color = keys(g:accent_colours)[key_index]
+  let s:accent = color
+endif
+
 
 " foreground
 let s:fg      = ' guifg=#bcbfc4 ctermfg=250'
