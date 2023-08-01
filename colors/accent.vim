@@ -29,6 +29,7 @@ let s:accent = get(g:, 'accent_colour', 'yellow')
 let s:accent = get(g:, 'accent_color', s:accent)
 let s:darken = get(g:, 'accent_darken', 0)
 let s:invert_status = get(g:, 'accent_invert_status', 0)
+let s:no_bg = get(g:, 'accent_no_bg', 0)
 
 " 32 bit fowler-noll-vo hash
 function! s:fnv1a(str)
@@ -91,7 +92,11 @@ let s:underline = ' gui=underline'
 let s:undercurl = ' gui=undercurl'
 
 " general
-execute 'hi Normal'       . s:fg      . s:bg
+if s:no_bg
+	execute 'hi Normal'       . s:fg      . s:bg_none
+else
+	execute 'hi Normal'       . s:fg      . s:bg
+endif
 if s:invert_status
   execute 'hi StatusLine' . s:fg_invd .s:bg_c     . s:none
 else
@@ -127,7 +132,11 @@ execute 'hi SpellCap'     . ' ctermbg=NONE' . s:undercurl . s:sp_blue
 execute 'hi SpellLocal'   . ' ctermbg=NONE' . s:undercurl . s:sp_cyan
 
 " syntax
-execute 'hi Normal'       . s:fg    . s:bg
+if s:no_bg
+	execute 'hi Normal'       . s:fg    . s:bg_none
+else
+	execute 'hi Normal'       . s:fg    . s:bg
+endif
 execute 'hi Comment'      . s:fg_d2 . s:bg_none . s:none
 execute 'hi String'       . s:fg_c  . s:bg_none . s:none
 execute 'hi Type'         . s:fg_b1 . s:bg_none . s:none
