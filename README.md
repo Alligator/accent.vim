@@ -36,6 +36,10 @@ let g:accent_invert_status = 1
 let g:accent_auto_cwd_colour = 0 " the default
 let g:accent_auto_cwd_colour = 1
 
+" g:accent_no_bg stops the background colour being set, which will use the terminal default
+let g:accent_no_bg = 0 " the default
+let g:accent_no_bg = 1
+
 " after changing settings, you'll need to re-apply the colorscheme
 colorscheme accent
 ```
