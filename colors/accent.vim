@@ -154,6 +154,7 @@ hi! link Constant     Type
 hi! link SpecialKey   Type
 hi! link Title        Type
 hi! link Directory    Type
+hi! link Function     Type
 hi! link Number       String
 hi! link Character    String
 hi! link ErrorMsg     Error
