@@ -151,7 +151,7 @@ hi! link Todo         Normal
 hi! link Macro        PreProc
 hi! link Statement    Type
 hi! link Constant     Type
-hi! link SpecialKey   Type
+hi! link SpecialKey   Comment
 hi! link Title        Type
 hi! link Directory    Type
 hi! link Function     Type
